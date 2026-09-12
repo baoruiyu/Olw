@@ -26,7 +26,7 @@ body {
 .hero {
     position: relative;
     height: 100vh;
-    background: url('https://images.unsplash.com/photo-1547772594328-3b74e3e22e01?w=1920&h=1080&fit=crop') center/cover no-repeat;
+    background: url('images/owl1.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
