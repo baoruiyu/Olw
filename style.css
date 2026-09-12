@@ -353,21 +353,6 @@ section {
     font-style: italic;
 }
 
-.footer-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.footer-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: var(--gold);
-}
-
 .footer-info {
     text-align: right;
     color: var(--text-muted);
@@ -515,6 +500,62 @@ section {
     font-size: 0.95rem;
 }
 
+/* ===== Footer: Proverb of the Night ===== */
+.footer-proverb {
+    flex: 1 1 320px;
+    max-width: 440px;
+    padding: 1.2rem 1.5rem;
+    background: rgba(26, 26, 46, 0.75);
+    border-left: 4px solid var(--gold);
+    border-radius: 10px;
+}
+
+.proverb-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.proverb-label {
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.proverb-btn {
+    padding: 0.25rem 0.9rem;
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 15px;
+    color: var(--gold);
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+.proverb-btn:hover {
+    background: var(--gold);
+    color: var(--primary);
+}
+
+.proverb-text {
+    color: var(--text);
+    font-style: italic;
+    line-height: 1.6;
+    min-height: 3.2em;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+.proverb-text.fade {
+    opacity: 0;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .title {
@@ -541,5 +582,10 @@ section {
     }
     .footer-info {
         text-align: center;
+    }
+    .footer-proverb {
+        max-width: 100%;
+        width: 100%;
+        text-align: left;
     }
 }
