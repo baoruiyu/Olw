@@ -25,49 +25,59 @@
         <ul class="nav-links">
             <li><a href="#gallery" data-zh="画廊" data-en="Gallery">画廊</a></li>
             <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
-            <li><a href="#contact" data-zh="联系" data-en="Contact">联系</a></li>
+            <li><a href="#contact" data-zh="加入方式" data-en="Join Us">加入方式</a></li>
         </ul>
     </nav>
 
     <section id="gallery" class="gallery-section">
         <h2 class="section-title" data-zh="画廊" data-en="Gallery">画廊</h2>
         <p class="section-desc" data-zh="来自世界各地的壮丽猫头鹰收藏" data-en="A collection of magnificent owls from around the world">来自世界各地的壮丽猫头鹰收藏</p>
-        <div class="gallery-grid">
+        <div class="gallery-featured">
             <div class="gallery-item">
-                <img src="images/owl1.jpg" alt="Snowy Owl">
+                <img src="images/owl1.jpg" alt="Featured Owl">
                 <div class="gallery-caption" data-zh="雪猫头鹰" data-en="Snowy Owl">雪猫头鹰</div>
             </div>
-            <div class="gallery-item">
-                <img src="images/owl2.jpg" alt="Barn Owl">
-                <div class="gallery-caption" data-zh="谷仓猫头鹰" data-en="Barn Owl">谷仓猫头鹰</div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/owl3.jpg" alt="Owl in Forest">
-                <div class="gallery-caption" data-zh="森林守护者" data-en="Forest Guardian">森林守护者</div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/owl4.jpg" alt="Owl Eyes">
-                <div class="gallery-caption" data-zh="夜之眼" data-en="Eyes of the Night">夜之眼</div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/owl5.jpg" alt="Owl Portrait">
-                <div class="gallery-caption" data-zh="肖像" data-en="Portrait">肖像</div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/owl6.jpg" alt="Owl Wings">
-                <div class="gallery-caption" data-zh="智慧之翼" data-en="Wings of Wisdom">智慧之翼</div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/owl7.jpg" alt="Owl Close-up">
-                <div class="gallery-caption" data-zh="特写" data-en="Close-up">特写</div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/owl8.jpg" alt="Night Owl">
-                <div class="gallery-caption" data-zh="夜猫" data-en="Night Owl">夜猫</div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/owl9.jpg" alt="Owl in Moonlight">
-                <div class="gallery-caption" data-zh="月光中的猫头鹰" data-en="Owl in Moonlight">月光中的猫头鹰</div>
+        </div>
+        <div class="submenu">
+            <button class="submenu-toggle" onclick="toggleSubmenu(this)">
+                <span data-zh="更多猫头鹰照片" data-en="More Owl Photos">更多猫头鹰照片</span>
+                <span class="submenu-arrow">▼</span>
+            </button>
+            <div class="submenu-content">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/owl2.jpg" alt="Barn Owl">
+                        <div class="gallery-caption" data-zh="谷仓猫头鹰" data-en="Barn Owl">谷仓猫头鹰</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/owl3.jpg" alt="Owl in Forest">
+                        <div class="gallery-caption" data-zh="森林守护者" data-en="Forest Guardian">森林守护者</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/owl4.jpg" alt="Owl Eyes">
+                        <div class="gallery-caption" data-zh="夜之眼" data-en="Eyes of the Night">夜之眼</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/owl5.jpg" alt="Owl Portrait">
+                        <div class="gallery-caption" data-zh="肖像" data-en="Portrait">肖像</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/owl6.jpg" alt="Owl Wings">
+                        <div class="gallery-caption" data-zh="智慧之翼" data-en="Wings of Wisdom">智慧之翼</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/owl7.jpg" alt="Owl Close-up">
+                        <div class="gallery-caption" data-zh="特写" data-en="Close-up">特写</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/owl8.jpg" alt="Night Owl">
+                        <div class="gallery-caption" data-zh="夜猫" data-en="Night Owl">夜猫</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/owl9.jpg" alt="Owl in Moonlight">
+                        <div class="gallery-caption" data-zh="月光中的猫头鹰" data-en="Owl in Moonlight">月光中的猫头鹰</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -101,26 +111,17 @@
     </section>
 
     <section id="contact" class="contact-section">
-        <h2 class="section-title" data-zh="联系" data-en="Contact">联系</h2>
+        <h2 class="section-title" data-zh="加入方式" data-en="Join Us">加入方式</h2>
         <p class="section-desc" data-zh="加入猫头鹰教社区" data-en="Join the Owl Cult community">加入猫头鹰教社区</p>
-        <div class="contact-form">
-            <form class="form-grid">
-                <div class="form-group">
-                    <label for="name" data-zh="姓名" data-en="Name">姓名</label>
-                    <input type="text" id="name" placeholder="你的名字">
-                </div>
-                <div class="form-group">
-                    <label for="email" data-zh="邮箱" data-en="Email">邮箱</label>
-                    <input type="email" id="email" placeholder="your.email@example.com">
-                </div>
-                <div class="form-group full-width">
-                    <label for="message" data-zh="留言" data-en="Message">留言</label>
-                    <textarea id="message" placeholder="分享你的猫头鹰故事..."></textarea>
-                </div>
-                <div class="form-group full-width">
-                    <button type="submit" class="submit-btn" data-zh="发送消息" data-en="Send Message">发送消息</button>
-                </div>
-            </form>
+        <div class="join-info">
+            <div class="join-item">
+                <span class="join-label" data-zh="微信号" data-en="WeChat">微信号</span>
+                <span class="join-value">Harmony_Bry</span>
+            </div>
+            <div class="join-item">
+                <span class="join-label" data-zh="邮箱" data-en="Email">邮箱</span>
+                <span class="join-value">baoruiyu120320@outlook.com</span>
+            </div>
         </div>
     </section>
 
@@ -133,7 +134,7 @@
             <div class="footer-links">
                 <a href="#gallery" data-zh="画廊" data-en="Gallery">画廊</a>
                 <a href="#about" data-zh="关于" data-en="About">关于</a>
-                <a href="#contact" data-zh="联系" data-en="Contact">联系</a>
+                <a href="#contact" data-zh="加入方式" data-en="Join Us">加入方式</a>
             </div>
             <div class="footer-info">
                 <p>&copy; 2026 猫头鹰教 The Owl Cult. All rights reserved.</p>

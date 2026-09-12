@@ -33,21 +33,16 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Form submission handler
-document.querySelector('.submit-btn').addEventListener('click', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    if (!name || !email || !message) {
-        alert(currentLang === 'zh' ? '请填写所有字段！' : 'Please fill in all fields!');
-        return;
+// Submenu toggle (secondary owl gallery)
+function toggleSubmenu(btn) {
+    const content = btn.nextElementSibling;
+    const arrow = btn.querySelector('.submenu-arrow');
+    const isOpen = content.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    if (arrow) {
+        arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
     }
-    
-    alert(currentLang === 'zh' ? '感谢联系猫头鹰教！我们会尽快回复您。' : 'Thank you for contacting the Owl Cult! We will get back to you soon.');
-    document.querySelector('.form-grid').reset();
-});
+}
 
 // Add parallax effect to hero
 window.addEventListener('scroll', () => {

@@ -242,68 +242,88 @@ section {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* ===== Contact ===== */
-.contact-form {
-    max-width: 600px;
+/* ===== Featured Gallery & Secondary Menu ===== */
+.gallery-featured {
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.form-grid {
+.gallery-featured .gallery-item {
+    aspect-ratio: 16/9;
+}
+
+.submenu {
+    max-width: 900px;
+    margin: 2rem auto 0;
+}
+
+.submenu-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--secondary);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    color: var(--gold);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.submenu-toggle:hover {
+    background: var(--gold);
+    color: var(--primary);
+}
+
+.submenu-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.submenu-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.submenu-content.open {
+    max-height: 3000px;
+    margin-top: 1.5rem;
+}
+
+/* ===== Join Info ===== */
+.join-info {
+    max-width: 600px;
+    margin: 0 auto;
     display: grid;
     gap: 1.5rem;
 }
 
-.form-group {
+.join-item {
     display: flex;
-    flex-direction: column;
-}
-
-.form-group.full-width {
-    grid-column: 1 / -1;
-}
-
-.form-group label {
-    margin-bottom: 0.5rem;
-    color: var(--gold);
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-    padding: 0.8rem;
-    border: 2px solid var(--secondary);
-    border-radius: 8px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1.5rem 2rem;
     background: var(--secondary);
-    color: var(--text);
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    border-radius: 12px;
+    border-left: 4px solid var(--gold);
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--gold);
-}
-
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.submit-btn {
-    padding: 1rem 2rem;
-    background: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+.join-label {
+    color: var(--gold);
     font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
+    font-size: 1.1rem;
 }
 
-.submit-btn:hover {
-    background: #c73a46;
+.join-value {
+    color: var(--text);
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
 }
 
 /* ===== Footer ===== */
