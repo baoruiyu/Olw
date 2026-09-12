@@ -1,13 +1,31 @@
-// Language toggle
+// Language toggle (choice persists across pages)
+const LANG_KEY = 'owl-cult-lang';
 let currentLang = 'zh';
 
-function toggleLanguage() {
-    currentLang = currentLang === 'zh' ? 'en' : 'zh';
+function applyLanguage(lang) {
+    currentLang = lang;
     document.querySelectorAll('[data-zh][data-en]').forEach(el => {
-        el.textContent = el.getAttribute(`data-${currentLang}`);
+        el.textContent = el.getAttribute(`data-${lang}`);
     });
-    document.documentElement.lang = currentLang === 'zh' ? 'zh' : 'en';
+    document.querySelectorAll('.nav-lang').forEach(btn => {
+        btn.textContent = lang === 'zh' ? 'EN' : '中文';
+    });
+    document.documentElement.lang = lang === 'zh' ? 'zh' : 'en';
 }
+
+function toggleLanguage() {
+    const next = currentLang === 'zh' ? 'en' : 'zh';
+    try { localStorage.setItem(LANG_KEY, next); } catch (e) {}
+    applyLanguage(next);
+}
+
+// Restore the language chosen on a previous page
+try {
+    const savedLang = localStorage.getItem(LANG_KEY);
+    if (savedLang === 'zh' || savedLang === 'en') {
+        applyLanguage(savedLang);
+    }
+} catch (e) {}
 
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -25,13 +43,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Navbar background on scroll
 const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(26, 26, 46, 0.98)';
-    } else {
-        navbar.style.background = 'rgba(26, 26, 46, 0.95)';
-    }
-});
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(26, 26, 46, 0.98)';
+        } else {
+            navbar.style.background = 'rgba(26, 26, 46, 0.95)';
+        }
+    });
+}
 
 // Submenu toggle (secondary owl gallery)
 function toggleSubmenu(btn) {
@@ -44,9 +64,10 @@ function toggleSubmenu(btn) {
     }
 }
 
-// Add parallax effect to hero
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    const scrolled = window.scrollY;
-    hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
-});
+// Add parallax effect to hero (home page only)
+const hero = document.querySelector('.hero');
+if (hero) {
+    window.addEventListener('scroll', () => {
+        hero.style.backgroundPositionY = window.scrollY * 0.5 + 'px';
+    });
+}

@@ -21,109 +21,50 @@
     </header>
 
     <nav class="navbar">
-        <div class="nav-brand">🦉 <span data-zh="猫头鹰教" data-en="The Owl Cult">猫头鹰教</span></div>
-        <ul class="nav-links">
-            <li><a href="#gallery" data-zh="画廊" data-en="Gallery">画廊</a></li>
-            <li><a href="#about" data-zh="关于" data-en="About">关于</a></li>
-            <li><a href="#contact" data-zh="加入方式" data-en="Join Us">加入方式</a></li>
-        </ul>
+        <a class="nav-brand" href="index.html">🦉 <span data-zh="猫头鹰教" data-en="The Owl Cult">猫头鹰教</span></a>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="gallery.html" data-zh="画廊" data-en="Gallery">画廊</a></li>
+                <li><a href="about.html" data-zh="关于" data-en="About">关于</a></li>
+                <li><a href="join.html" data-zh="加入方式" data-en="Join Us">加入方式</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <section id="gallery" class="gallery-section">
-        <h2 class="section-title" data-zh="画廊" data-en="Gallery">画廊</h2>
-        <p class="section-desc" data-zh="来自世界各地的壮丽猫头鹰收藏" data-en="A collection of magnificent owls from around the world">来自世界各地的壮丽猫头鹰收藏</p>
-        <div class="gallery-featured">
-            <div class="gallery-item">
-                <img src="images/owl1.jpg" alt="Featured Owl">
-                <div class="gallery-caption" data-zh="雪猫头鹰" data-en="Snowy Owl">雪猫头鹰</div>
-            </div>
-        </div>
-        <div class="submenu">
-            <button class="submenu-toggle" onclick="toggleSubmenu(this)">
-                <span data-zh="更多猫头鹰照片" data-en="More Owl Photos">更多猫头鹰照片</span>
-                <span class="submenu-arrow">▼</span>
-            </button>
-            <div class="submenu-content">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="images/owl2.jpg" alt="Barn Owl">
-                        <div class="gallery-caption" data-zh="谷仓猫头鹰" data-en="Barn Owl">谷仓猫头鹰</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/owl3.jpg" alt="Owl in Forest">
-                        <div class="gallery-caption" data-zh="森林守护者" data-en="Forest Guardian">森林守护者</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/owl4.jpg" alt="Owl Eyes">
-                        <div class="gallery-caption" data-zh="夜之眼" data-en="Eyes of the Night">夜之眼</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/owl5.jpg" alt="Owl Portrait">
-                        <div class="gallery-caption" data-zh="肖像" data-en="Portrait">肖像</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/owl6.jpg" alt="Owl Wings">
-                        <div class="gallery-caption" data-zh="智慧之翼" data-en="Wings of Wisdom">智慧之翼</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/owl7.jpg" alt="Owl Close-up">
-                        <div class="gallery-caption" data-zh="特写" data-en="Close-up">特写</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/owl8.jpg" alt="Night Owl">
-                        <div class="gallery-caption" data-zh="夜猫" data-en="Night Owl">夜猫</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/owl9.jpg" alt="Owl in Moonlight">
-                        <div class="gallery-caption" data-zh="月光中的猫头鹰" data-en="Owl in Moonlight">月光中的猫头鹰</div>
-                    </div>
+    <main class="page-main">
+        <section class="gallery-section featured-section">
+            <h2 class="section-title" data-zh="本月猫头鹰" data-en="Owl of the Month">本月猫头鹰</h2>
+            <p class="section-desc" data-zh="雪猫头鹰 —— 我们黑暗中的守护者" data-en="Snowy Owl — our guardian in the dark">雪猫头鹰 —— 我们黑暗中的守护者</p>
+            <div class="gallery-featured">
+                <div class="gallery-item">
+                    <img src="images/owl1.jpg" alt="Featured Owl">
+                    <div class="gallery-caption" data-zh="雪猫头鹰" data-en="Snowy Owl">雪猫头鹰</div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="featured-actions">
+                <a class="btn-outline" href="gallery.html" data-zh="查看完整画廊" data-en="View Full Gallery">查看完整画廊</a>
+            </div>
+        </section>
 
-    <section id="about" class="about-section">
-        <h2 class="section-title" data-zh="关于" data-en="About">关于</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3 data-zh="欢迎来到猫头鹰教" data-en="Welcome to the Owl Cult">欢迎来到猫头鹰教</h3>
-                <p data-zh="我们是一个致力于夜间壮丽生物的社区。猫头鹰自古以来就是智慧、神秘和力量的象征。从古代神话到现代传说，这些美丽的鸟类一直吸引着我们的想象力。" data-en="We are a community dedicated to the majestic creatures of the night. Owls have been symbols of wisdom, mystery, and power throughout human history. From ancient myths to modern folklore, these magnificent birds have captivated our imagination.">我们是一个致力于夜间壮丽生物的社区。猫头鹰自古以来就是智慧、神秘和力量的象征。从古代神话到现代传说，这些美丽的鸟类一直吸引着我们的想象力。</p>
-                <p data-zh="猫头鹰教通过摄影、艺术和故事来庆祝猫头鹰的美丽与神秘。我们相信，在黑暗中，猫头鹰能看到别人看不见的东西。" data-en="The Owl Cult celebrates the beauty and mystery of owls through photography, art, and storytelling. We believe that in the darkness, owls see what others cannot.">猫头鹰教通过摄影、艺术和故事来庆祝猫头鹰的美丽与神秘。我们相信，在黑暗中，猫头鹰能看到别人看不见的东西。</p>
-                <div class="about-stats">
-                    <div class="stat">
-                        <span class="stat-number">100+</span>
-                        <span class="stat-label" data-zh="物种" data-en="Species">物种</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">∞</span>
-                        <span class="stat-label" data-zh="神秘" data-en="Mysteries">神秘</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label" data-zh="夜视" data-en="Night Vision">夜视</span>
-                    </div>
-                </div>
+        <section class="explore-section">
+            <h2 class="section-title" data-zh="探索" data-en="Explore">探索</h2>
+            <p class="section-desc" data-zh="走进猫头鹰教的世界" data-en="Step into the world of the Owl Cult">走进猫头鹰教的世界</p>
+            <div class="explore-grid">
+                <a class="explore-card" href="gallery.html">
+                    <h3 data-zh="画廊" data-en="Gallery">画廊</h3>
+                    <p data-zh="欣赏来自世界各地的猫头鹰照片" data-en="Admire owl photos from around the world">欣赏来自世界各地的猫头鹰照片</p>
+                </a>
+                <a class="explore-card" href="about.html">
+                    <h3 data-zh="关于" data-en="About">关于</h3>
+                    <p data-zh="了解我们的故事与信念" data-en="Learn our story and beliefs">了解我们的故事与信念</p>
+                </a>
+                <a class="explore-card" href="join.html">
+                    <h3 data-zh="加入方式" data-en="Join Us">加入方式</h3>
+                    <p data-zh="通过微信或邮箱与我们联系" data-en="Reach us via WeChat or email">通过微信或邮箱与我们联系</p>
+                </a>
             </div>
-            <div class="about-image">
-                <img src="images/owl1.jpg" alt="Owl in Moonlight">
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <h2 class="section-title" data-zh="加入方式" data-en="Join Us">加入方式</h2>
-        <p class="section-desc" data-zh="加入猫头鹰教社区" data-en="Join the Owl Cult community">加入猫头鹰教社区</p>
-        <div class="join-info">
-            <div class="join-item">
-                <span class="join-label" data-zh="微信号" data-en="WeChat">微信号</span>
-                <span class="join-value">Harmony_Bry</span>
-            </div>
-            <div class="join-item">
-                <span class="join-label" data-zh="邮箱" data-en="Email">邮箱</span>
-                <span class="join-value">baoruiyu120320@outlook.com</span>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="footer-content">
@@ -132,9 +73,9 @@
                 <p class="footer-slogan" data-zh="咕咪" data-en="Gu Mi">咕咪</p>
             </div>
             <div class="footer-links">
-                <a href="#gallery" data-zh="画廊" data-en="Gallery">画廊</a>
-                <a href="#about" data-zh="关于" data-en="About">关于</a>
-                <a href="#contact" data-zh="加入方式" data-en="Join Us">加入方式</a>
+                <a href="gallery.html" data-zh="画廊" data-en="Gallery">画廊</a>
+                <a href="about.html" data-zh="关于" data-en="About">关于</a>
+                <a href="join.html" data-zh="加入方式" data-en="Join Us">加入方式</a>
             </div>
             <div class="footer-info">
                 <p>&copy; 2026 猫头鹰教 The Owl Cult. All rights reserved.</p>

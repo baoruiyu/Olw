@@ -386,6 +386,135 @@ section {
     }
 }
 
+/* ===== Multi-page navigation ===== */
+.nav-brand {
+    text-decoration: none;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-links a.active {
+    color: var(--gold);
+}
+
+.nav-lang {
+    padding: 0.4rem 1rem;
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.nav-lang:hover {
+    background: var(--gold);
+    color: var(--primary);
+}
+
+/* ===== Sub-page banner ===== */
+.page-banner {
+    position: relative;
+    padding: 9rem 2rem 4rem;
+    text-align: center;
+    background-color: var(--secondary);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.page-banner > * {
+    position: relative;
+    z-index: 1;
+}
+
+.banner-gallery {
+    background-image: url('images/owl2.jpg');
+}
+
+.banner-about {
+    background-image: url('images/owl3.jpg');
+}
+
+.banner-join {
+    background-image: url('images/owl4.jpg');
+}
+
+/* ===== Home: featured & explore ===== */
+.featured-section .gallery-featured {
+    margin-bottom: 2.5rem;
+}
+
+.featured-actions {
+    text-align: center;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: var(--primary);
+}
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.explore-card {
+    display: block;
+    padding: 2rem 1.5rem;
+    background: var(--secondary);
+    border-radius: 12px;
+    border-top: 3px solid var(--gold);
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.explore-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.explore-card h3 {
+    color: var(--gold);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.explore-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .title {
@@ -393,6 +522,15 @@ section {
     }
     .subtitle {
         font-size: 1.5rem;
+    }
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+    .nav-right {
+        gap: 0.8rem;
+    }
+    .nav-links {
+        gap: 1rem;
     }
     .about-content {
         grid-template-columns: 1fr;
