@@ -1,67 +1,113 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>加入方式 - 猫头鹰教 The Owl Cult</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="加入猫头鹰教 —— 微信 Harmony_Bry，邮箱 baoruiyu120320@outlook.com。">
+<meta name="theme-color" content="#070a14">
+<title>加入方式 · 猫头鹰教</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav class="navbar">
-        <a class="nav-brand" href="index.html">🦉 <span data-zh="猫头鹰教" data-en="The Owl Cult">猫头鹰教</span></a>
-        <div class="nav-right">
-            <ul class="nav-links">
-                <li><a href="gallery.html" data-zh="画廊" data-en="Gallery">画廊</a></li>
-                <li><a href="about.html" data-zh="关于" data-en="About">关于</a></li>
-                <li><a href="join.html" class="active" data-zh="加入方式" data-en="Join Us">加入方式</a></li>
-            </ul>
-            <button class="nav-lang" onclick="toggleLanguage()">EN</button>
-        </div>
-    </nav>
+<body data-page="join" data-title-zh="加入方式 · 猫头鹰教" data-title-en="Join · The Owl Cult">
 
-    <main class="page-main">
-        <header class="page-banner banner-join">
-            <h1 class="section-title" data-zh="加入方式" data-en="Join Us">加入方式</h1>
-            <p class="section-desc" data-zh="加入猫头鹰教社区" data-en="Join the Owl Cult community">加入猫头鹰教社区</p>
-        </header>
+<div class="scroll-progress" aria-hidden="true"></div>
 
-        <section class="contact-section">
-            <div class="join-info">
-                <div class="join-item">
-                    <span class="join-label" data-zh="微信号" data-en="WeChat">微信号</span>
-                    <span class="join-value">Harmony_Bry</span>
-                </div>
-                <div class="join-item">
-                    <span class="join-label" data-zh="邮箱" data-en="Email">邮箱</span>
-                    <span class="join-value">baoruiyu120320@outlook.com</span>
-                </div>
-            </div>
-        </section>
-    </main>
+<header class="nav" id="siteNav">
+  <a class="nav-brand" href="index.html">
+    <span class="zh">猫头鹰教</span>
+    <span class="en">The Owl Cult</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="菜单" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="nav-menu" id="navMenu">
+    <a href="index.html" data-nav="index" data-zh="首页" data-en="Home">首页</a>
+    <a href="gallery.html" data-nav="gallery" data-zh="画廊" data-en="Gallery">画廊</a>
+    <a href="about.html" data-nav="about" data-zh="关于" data-en="About">关于</a>
+    <a href="join.html" data-nav="join" data-zh="加入方式" data-en="Join">加入方式</a>
+    <button class="lang-switch" type="button" onclick="toggleLanguage()" data-lang-label>中 / EN</button>
+  </nav>
+</header>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>🦉 <span data-zh="猫头鹰教" data-en="The Owl Cult">猫头鹰教</span></h3>
-                <p class="footer-slogan" data-zh="咕咪" data-en="Gu Mi">咕咪</p>
-            </div>
-            <div class="footer-proverb">
-                <div class="proverb-head">
-                    <span class="proverb-label" data-zh="夜之箴言" data-en="Proverb of the Night">夜之箴言</span>
-                    <button class="proverb-btn" onclick="nextProverb()" data-zh="换一句" data-en="Another">换一句</button>
-                </div>
-                <p class="proverb-text" id="proverbText">在黑暗中，我们看得更清楚。</p>
-            </div>
-            <div class="footer-info">
-                <p>&copy; 2026 猫头鹰教 The Owl Cult. All rights reserved.</p>
-                <p data-zh="作者：Harmony_Bry" data-en="Author: Harmony_Bry">作者：Harmony_Bry</p>
-            </div>
-        </div>
-    </footer>
+<section class="page-hero">
+  <p class="eyebrow" data-zh="Join" data-en="Join">Join</p>
+  <h1 data-zh="加入方式" data-en="How to Join">加入方式</h1>
+  <p data-zh="一只猫头鹰在等你。通过下面任意一种方式联系它，即可拿到入会暗号。" data-en="An owl is waiting. Reach it through either channel below to receive the watchword.">一只猫头鹰在等你。通过下面任意一种方式联系它，即可拿到入会暗号。</p>
+</section>
 
-    <script src="script.js"></script>
+<section class="section">
+  <div class="join-grid">
+    <div class="card join-item reveal" style="cursor:default">
+      <span class="join-label" data-zh="微信号 / WeChat" data-en="WeChat ID">微信号 / WeChat</span>
+      <span class="join-value" id="wechatValue" data-raw="Harmony_Bry" style="user-select:all">Harmony_Bry
+        <small data-zh="添加时请备注「咕咪」" data-en="Please mention “Gu Mi” when adding">添加时请备注「咕咪」</small>
+      </span>
+      <button class="copy-btn" type="button" data-copy="#wechatValue" data-zh="复制微信号" data-en="Copy WeChat ID">复制微信号</button>
+    </div>
+
+    <div class="card join-item reveal" data-delay="140" style="cursor:default">
+      <span class="join-label" data-zh="邮箱 / Email" data-en="Email">邮箱 / Email</span>
+      <span class="join-value" id="emailValue" data-raw="baoruiyu120320@outlook.com" style="user-select:all">baoruiyu120320@outlook.com
+        <small data-zh="主题请写「守夜申请」" data-en="Subject line: “Night Watch Application”">主题请写「守夜申请」</small>
+      </span>
+      <button class="copy-btn" type="button" data-copy="#emailValue" data-zh="复制邮箱" data-en="Copy email">复制邮箱</button>
+    </div>
+  </div>
+
+  <ol class="join-steps">
+    <li class="reveal">
+      <span class="step-no">01</span>
+      <span data-zh="用微信号或邮箱联系守夜人，说明你想加入。" data-en="Contact the night watcher by WeChat or email and say you want to join.">用微信号或邮箱联系守夜人，说明你想加入。</span>
+    </li>
+    <li class="reveal" data-delay="120">
+      <span class="step-no">02</span>
+      <span data-zh="在任意一个夜晚，抬头看五分钟天空。" data-en="On any night, look up at the sky for five minutes.">在任意一个夜晚，抬头看五分钟天空。</span>
+    </li>
+    <li class="reveal" data-delay="240">
+      <span class="step-no">03</span>
+      <span data-zh="把看到的写下来回复过去，暗号即确认通过。" data-en="Write down what you saw and reply — the watchword is then confirmed.">把看到的写下来回复过去，暗号即确认通过。</span>
+    </li>
+  </ol>
+
+  <p class="join-note card" data-zh="无需会费，也没有考核。唯一的门槛是愿意在夜里保持清醒。" data-en="No fees, no exams. The only threshold is a willingness to stay awake at night.">无需会费，也没有考核。唯一的门槛是愿意在夜里保持清醒。</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand-name">猫头鹰教</span>
+      <p class="foot-slogan" data-zh="咕咪" data-en="Gu Mi">咕咪</p>
+      <p data-zh="在黑暗中，我们看得更清楚。" data-en="In the darkness, we see clearly.">在黑暗中，我们看得更清楚。</p>
+    </div>
+
+    <div>
+      <h4 data-zh="页面导航" data-en="Navigation">页面导航</h4>
+      <ul class="footer-links">
+        <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+        <li><a href="gallery.html" data-zh="画廊" data-en="Gallery">画廊</a></li>
+        <li><a href="about.html" data-zh="关于" data-en="About">关于</a></li>
+        <li><a href="join.html" data-zh="加入方式" data-en="Join">加入方式</a></li>
+      </ul>
+    </div>
+
+    <div class="proverb-box">
+      <div class="proverb-head">
+        <h4 data-zh="夜之箴言" data-en="Night Proverb">夜之箴言</h4>
+        <button class="proverb-btn" type="button" onclick="nextProverb()" data-zh="换一句" data-en="Another">换一句</button>
+      </div>
+      <p class="proverb-text" id="proverbText">黑夜不是遮蔽，而是让我们看见更多的幕布。</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span data-zh="© 2026 猫头鹰教 The Owl Cult" data-en="© 2026 The Owl Cult">© 2026 猫头鹰教 The Owl Cult</span>
+    <span class="author" data-zh="作者：Harmony_Bry" data-en="Author: Harmony_Bry">作者：Harmony_Bry</span>
+  </div>
+</footer>
+
+<button class="to-top" type="button" aria-label="回到顶部" data-aria-zh="回到顶部" data-aria-en="Back to top">↑</button>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
