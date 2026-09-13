@@ -1137,9 +1137,10 @@ body.lb-open{overflow:hidden;}
   right:clamp(1rem,3vw,2rem);
   bottom:clamp(4.8rem,9vw,5.6rem);
   z-index:150;
-  width:min(390px,calc(100vw - 2rem));
-  max-height:min(72vh,640px);
+  width:min(340px,calc(100vw - 2rem));
+  max-height:min(46vh,380px);
   overflow:auto;
+  overscroll-behavior:contain;
   padding:1.4rem 1.5rem 1.5rem;
   background:rgba(13,18,36,.93);
   border:1px solid rgba(217,180,91,.4);
@@ -1153,6 +1154,18 @@ body.lb-open{overflow:hidden;}
   transition:opacity .42s var(--ease),transform .42s var(--ease),visibility .42s var(--ease);
 }
 .update-card.show{opacity:1;visibility:visible;transform:translateY(0) scale(1);}
+/* 紧凑态：默认只显示标签行与标题，点击标题栏展开，避免浮层压住正文与「复制」按钮 */
+.update-card.compact{
+  width:min(300px,calc(100vw - 1.4rem));
+  max-height:none;
+  padding:.85rem 1.15rem;
+}
+.update-card.compact .update-head{cursor:pointer;}
+.update-card.compact .update-tag::after{content:' \25BE';}
+.update-card.compact .update-title{margin:.15rem 0 0;font-size:.96rem;}
+.update-card.compact .update-sub,
+.update-card.compact .cl-version,
+.update-card.compact .update-actions{display:none;}
 .update-head{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:.65rem;}
 .update-tag{
   font-family:var(--font-display);
@@ -1199,8 +1212,8 @@ body.lb-open{overflow:hidden;}
   border-bottom:1px solid rgba(217,180,91,.4);
 }
 .update-all:hover{color:#fff3d1;}
-@media (max-width:520px){
-  .update-card{right:.7rem;left:.7rem;width:auto;bottom:1rem;max-height:76vh;}
+@media (max-width:760px){
+  .update-card{right:.7rem;left:auto;width:min(320px,calc(100vw - 1.4rem));bottom:4.6rem;max-height:min(44vh,340px);}
 }
 
 /* ==========================================================================
@@ -1324,4 +1337,12 @@ body.lb-open{overflow:hidden;}
 
 @media (prefers-reduced-motion:reduce){
   .update-card,.toast{transition:none;}
+}
+
+/* ---------- 22. 页脚底部安全区 ----------
+   右下角「版本更新」卡片为 fixed 浮层，滚动到页面底部时会压住页脚箴言与版本号。
+   在此为页脚预留一段底部留白（≈ 卡片底距 + 卡片高度 + 余量），保证滚到底部时页脚内容完整可见。 */
+.footer{padding-bottom:calc(1.8rem + 200px);}
+@media (max-width:760px){
+  .footer{padding-bottom:calc(1.8rem + 186px);}
 }

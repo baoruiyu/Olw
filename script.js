@@ -998,3 +998,59 @@
     initExtras();
   }
 })();
+
+/* ==========================================================================
+   22. 更新卡紧凑态 / 让位，以及内容显现兜底（独立模块，不改动以上逻辑）
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var COMPACT = 'compact';
+
+  function cardEl() { return document.getElementById('updateCard'); }
+  function isShown(c) { return !!(c && c.classList.contains('show')); }
+
+  /* 浮层出现后默认进入紧凑态（只留标签行与标题），不遮挡正文与「复制」按钮 */
+  var tries = 0;
+  var timer = window.setInterval(function () {
+    var c = cardEl();
+    if (c) {
+      window.clearInterval(timer);
+      c.classList.add(COMPACT);
+    } else if (++tries > 60) {
+      window.clearInterval(timer);
+    }
+  }, 80);
+
+  /* 点击标题行：展开 / 收起（点关闭按钮等 data-act 元素不触发） */
+  document.addEventListener('click', function (ev) {
+    var c = cardEl();
+    var t = ev.target;
+    if (!isShown(c) || !t || !t.closest) { return; }
+    if (t.closest('[data-act]')) { return; }
+    var head = t.closest('.update-head');
+    if (head && c.contains(head)) { c.classList.toggle(COMPACT); }
+  }, true);
+
+  /* 点击卡片外区域：自动收起为紧凑态，随时释放被覆盖的页面元素 */
+  document.addEventListener('click', function (ev) {
+    var c = cardEl();
+    if (isShown(c) && !c.contains(ev.target)) { c.classList.add(COMPACT); }
+  }, true);
+
+  /* Esc：收起为紧凑态 */
+  document.addEventListener('keydown', function (ev) {
+    var c = cardEl();
+    if ((ev.key === 'Escape' || ev.keyCode === 27) && isShown(c)) { c.classList.add(COMPACT); }
+  });
+
+  /* 兜底：视口内的 .reveal 元素 1.8s 后仍未显现则强制显现，避免出现空白断裂 */
+  window.setTimeout(function () {
+    var els = document.querySelectorAll('.reveal:not(.in)');
+    var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+    for (var i = 0; i < els.length; i++) {
+      var r = els[i].getBoundingClientRect();
+      if (r.top < vh && r.bottom > 0) { els[i].classList.add('in'); }
+    }
+  }, 1800);
+})();
