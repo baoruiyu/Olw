@@ -1,91 +1,156 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>猫头鹰教 - The Owl Cult</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="猫头鹰教 The Owl Cult —— 夜行者协会。在黑暗中，我们看得更清楚。">
+<meta name="theme-color" content="#070a14">
+<title>猫头鹰教 The Owl Cult</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="title" data-zh="猫头鹰教" data-en="The Owl Cult">猫头鹰教</h1>
-            <p class="slogan" data-zh="咕咪" data-en="Gu Mi">咕咪</p>
-            <p class="tagline" data-zh="在黑暗中，我们看得更清楚" data-en="In the darkness, we see clearly">在黑暗中，我们看得更清楚</p>
-            <button class="lang-switch" onclick="toggleLanguage()">EN / 中文</button>
-        </div>
-    </header>
+<body data-page="index" data-title-zh="猫头鹰教 The Owl Cult" data-title-en="The Owl Cult">
 
-    <nav class="navbar">
-        <a class="nav-brand" href="index.html">🦉 <span data-zh="猫头鹰教" data-en="The Owl Cult">猫头鹰教</span></a>
-        <div class="nav-right">
-            <ul class="nav-links">
-                <li><a href="gallery.html" data-zh="画廊" data-en="Gallery">画廊</a></li>
-                <li><a href="about.html" data-zh="关于" data-en="About">关于</a></li>
-                <li><a href="join.html" data-zh="加入方式" data-en="Join Us">加入方式</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- 顶部滚动进度条 -->
+<div class="scroll-progress" aria-hidden="true"></div>
 
-    <main class="page-main">
-        <section class="gallery-section featured-section">
-            <h2 class="section-title" data-zh="本月猫头鹰" data-en="Owl of the Month">本月猫头鹰</h2>
-            <p class="section-desc" data-zh="雪猫头鹰 —— 我们黑暗中的守护者" data-en="Snowy Owl — our guardian in the dark">雪猫头鹰 —— 我们黑暗中的守护者</p>
-            <div class="gallery-featured">
-                <div class="gallery-item">
-                    <img src="images/owl1.jpg" alt="Featured Owl">
-                    <div class="gallery-caption" data-zh="雪猫头鹰" data-en="Snowy Owl">雪猫头鹰</div>
-                </div>
-            </div>
-            <div class="featured-actions">
-                <a class="btn-outline" href="gallery.html" data-zh="查看完整画廊" data-en="View Full Gallery">查看完整画廊</a>
-            </div>
-        </section>
+<!-- 导航栏 -->
+<header class="nav" id="siteNav">
+  <a class="nav-brand" href="index.html">
+    <span class="zh">猫头鹰教</span>
+    <span class="en">The Owl Cult</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="菜单" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="nav-menu" id="navMenu">
+    <a href="index.html" data-nav="index" data-zh="首页" data-en="Home">首页</a>
+    <a href="gallery.html" data-nav="gallery" data-zh="画廊" data-en="Gallery">画廊</a>
+    <a href="about.html" data-nav="about" data-zh="关于" data-en="About">关于</a>
+    <a href="join.html" data-nav="join" data-zh="加入方式" data-en="Join">加入方式</a>
+    <button class="lang-switch" type="button" onclick="toggleLanguage()" data-lang-label>中 / EN</button>
+  </nav>
+</header>
 
-        <section class="explore-section">
-            <h2 class="section-title" data-zh="探索" data-en="Explore">探索</h2>
-            <p class="section-desc" data-zh="走进猫头鹰教的世界" data-en="Step into the world of the Owl Cult">走进猫头鹰教的世界</p>
-            <div class="explore-grid">
-                <a class="explore-card" href="gallery.html">
-                    <h3 data-zh="画廊" data-en="Gallery">画廊</h3>
-                    <p data-zh="欣赏来自世界各地的猫头鹰照片" data-en="Admire owl photos from around the world">欣赏来自世界各地的猫头鹰照片</p>
-                </a>
-                <a class="explore-card" href="about.html">
-                    <h3 data-zh="关于" data-en="About">关于</h3>
-                    <p data-zh="了解我们的故事与信念" data-en="Learn our story and beliefs">了解我们的故事与信念</p>
-                </a>
-                <a class="explore-card" href="join.html">
-                    <h3 data-zh="加入方式" data-en="Join Us">加入方式</h3>
-                    <p data-zh="通过微信或邮箱与我们联系" data-en="Reach us via WeChat or email">通过微信或邮箱与我们联系</p>
-                </a>
-            </div>
-        </section>
-    </main>
+<!-- 首屏 Hero -->
+<section class="hero">
+  <div class="hero-media" aria-hidden="true" style="--hero-img:url('images/owl1.jpg')"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <canvas id="starCanvas" aria-hidden="true"></canvas>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>🦉 <span data-zh="猫头鹰教" data-en="The Owl Cult">猫头鹰教</span></h3>
-                <p class="footer-slogan" data-zh="咕咪" data-en="Gu Mi">咕咪</p>
-            </div>
-            <div class="footer-proverb">
-                <div class="proverb-head">
-                    <span class="proverb-label" data-zh="夜之箴言" data-en="Proverb of the Night">夜之箴言</span>
-                    <button class="proverb-btn" onclick="nextProverb()" data-zh="换一句" data-en="Another">换一句</button>
-                </div>
-                <p class="proverb-text" id="proverbText">在黑暗中，我们看得更清楚。</p>
-            </div>
-            <div class="footer-info">
-                <p>&copy; 2026 猫头鹰教 The Owl Cult. All rights reserved.</p>
-                <p data-zh="作者：Harmony_Bry" data-en="Author: Harmony_Bry">作者：Harmony_Bry</p>
-            </div>
-        </div>
-    </footer>
+  <div class="hero-content">
+    <p class="hero-kicker" data-zh="夜行者协会" data-en="Night Walkers Society">夜行者协会</p>
+    <h1 class="title" data-zh="猫头鹰教" data-en="The Owl Cult">猫头鹰教</h1>
+    <p class="slogan" data-zh="咕咪" data-en="Gu Mi">咕咪</p>
+    <p class="subtitle" data-zh="在黑暗中，我们看得更清楚" data-en="In the darkness, we see clearly">在黑暗中，我们看得更清楚</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="join.html" data-zh="加入我们" data-en="Join us">加入我们</a>
+      <a class="btn" href="gallery.html" data-zh="进入画廊" data-en="Enter the gallery">进入画廊</a>
+      <button class="lang-switch" type="button" onclick="toggleLanguage()" data-lang-label>中 / EN</button>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <div class="hero-scroll" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- 本月猫头鹰 -->
+<section class="section" id="feature">
+  <div class="section-head reveal">
+    <h2 data-zh="本月猫头鹰" data-en="Owl of the Month">本月猫头鹰</h2>
+    <p data-zh="由当月值班的同伴推举一位，替全体守夜。" data-en="Chosen by the member on duty, keeping watch for us all.">由当月值班的同伴推举一位，替全体守夜。</p>
+  </div>
+
+  <div class="feature">
+    <div class="feature-media reveal" data-lightbox data-caption-zh="本月猫头鹰 · 静夜守望者" data-caption-en="Owl of the Month · Watcher of Still Nights">
+      <img src="images/owl1.jpg" alt="本月猫头鹰" data-alt-zh="本月猫头鹰 · 静夜守望者" data-alt-en="Owl of the Month · Watcher of Still Nights" loading="lazy" decoding="async" width="1200" height="800">
+    </div>
+
+    <div class="feature-body reveal" data-delay="140">
+      <span class="feature-no">OWL · 01</span>
+      <h3 data-zh="静夜守望者" data-en="Watcher of Still Nights">静夜守望者</h3>
+      <p data-zh="它栖在最高的枝上，一动不动，把整片夜色收进瞳孔。" data-en="It perches on the highest branch, motionless, gathering the whole night into its eyes.">它栖在最高的枝上，一动不动，把整片夜色收进瞳孔。</p>
+      <p data-zh="本月的同伴们一致推举它，因为它从不眨眼。" data-en="The members chose it unanimously: it never blinks.">本月的同伴们一致推举它，因为它从不眨眼。</p>
+      <div class="feature-tags">
+        <span class="tag" data-zh="夜行" data-en="Nocturnal">夜行</span>
+        <span class="tag" data-zh="凝视" data-en="Gazing">凝视</span>
+        <span class="tag" data-zh="沉默" data-en="Silence">沉默</span>
+      </div>
+      <a class="feature-link" href="gallery.html">
+        <span data-zh="进入画廊看看其他同伴" data-en="Meet the others in the gallery">进入画廊看看其他同伴</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 探索入口 -->
+<section class="section" id="explore">
+  <div class="section-head reveal">
+    <h2 data-zh="探索" data-en="Explore">探索</h2>
+    <p data-zh="从任意一扇门走进来。" data-en="Step in through any of these doors.">从任意一扇门走进来。</p>
+  </div>
+
+  <div class="explore-grid">
+    <a class="card explore-card reveal" href="gallery.html">
+      <span class="explore-no">01</span>
+      <h3 data-zh="画廊" data-en="Gallery">画廊</h3>
+      <p data-zh="八位同伴的夜间肖像，每一张都来自不同的守夜时刻。" data-en="Eight portraits from eight different nights on watch.">八位同伴的夜间肖像，每一张都来自不同的守夜时刻。</p>
+      <span class="explore-more" data-zh="前往画廊 →" data-en="Open the gallery →">前往画廊 →</span>
+    </a>
+
+    <a class="card explore-card reveal" data-delay="120" href="about.html">
+      <span class="explore-no">02</span>
+      <h3 data-zh="关于" data-en="About">关于</h3>
+      <p data-zh="我们相信什么、如何守夜，以及这个协会从哪里来。" data-en="What we believe, how we keep watch, and where this society began.">我们相信什么、如何守夜，以及这个协会从哪里来。</p>
+      <span class="explore-more" data-zh="了解我们 →" data-en="Read about us →">了解我们 →</span>
+    </a>
+
+    <a class="card explore-card reveal" data-delay="240" href="join.html">
+      <span class="explore-no">03</span>
+      <h3 data-zh="加入方式" data-en="Join">加入方式</h3>
+      <p data-zh="一只猫头鹰在等你，联系它即可拿到入会暗号。" data-en="An owl is waiting — reach out to receive the watchword.">一只猫头鹰在等你，联系它即可拿到入会暗号。</p>
+      <span class="explore-more" data-zh="前往加入 →" data-en="Go to join →">前往加入 →</span>
+    </a>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand-name">猫头鹰教</span>
+      <p class="foot-slogan" data-zh="咕咪" data-en="Gu Mi">咕咪</p>
+      <p data-zh="在黑暗中，我们看得更清楚。" data-en="In the darkness, we see clearly.">在黑暗中，我们看得更清楚。</p>
+    </div>
+
+    <div>
+      <h4 data-zh="页面导航" data-en="Navigation">页面导航</h4>
+      <ul class="footer-links">
+        <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+        <li><a href="gallery.html" data-zh="画廊" data-en="Gallery">画廊</a></li>
+        <li><a href="about.html" data-zh="关于" data-en="About">关于</a></li>
+        <li><a href="join.html" data-zh="加入方式" data-en="Join">加入方式</a></li>
+      </ul>
+    </div>
+
+    <div class="proverb-box">
+      <div class="proverb-head">
+        <h4 data-zh="夜之箴言" data-en="Night Proverb">夜之箴言</h4>
+        <button class="proverb-btn" type="button" onclick="nextProverb()" data-zh="换一句" data-en="Another">换一句</button>
+      </div>
+      <p class="proverb-text" id="proverbText">黑夜不是遮蔽，而是让我们看见更多的幕布。</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span data-zh="© 2026 猫头鹰教 The Owl Cult" data-en="© 2026 The Owl Cult">© 2026 猫头鹰教 The Owl Cult</span>
+    <span class="author" data-zh="作者：Harmony_Bry" data-en="Author: Harmony_Bry">作者：Harmony_Bry</span>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="to-top" type="button" aria-label="回到顶部" data-aria-zh="回到顶部" data-aria-en="Back to top">↑</button>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
