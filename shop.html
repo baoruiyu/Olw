@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="猫头鹰教商城 —— 正在筹备中。">
+<meta name="theme-color" content="#070a14">
+<title>商城 · 猫头鹰教</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="shop" data-title-zh="商城 · 猫头鹰教" data-title-en="Shop · The Owl Cult">
+
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="nav" id="siteNav">
+  <a class="nav-brand" href="index.html">
+    <span class="zh">猫头鹰教</span>
+    <span class="en">The Owl Cult</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="菜单" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="nav-menu" id="navMenu">
+    <a href="index.html" data-nav="index" data-zh="首页" data-en="Home">首页</a>
+    <a href="gallery.html" data-nav="gallery" data-zh="画廊" data-en="Gallery">画廊</a>
+    <a href="about.html" data-nav="about" data-zh="关于" data-en="About">关于</a>
+    <a href="join.html" data-nav="join" data-zh="加入方式" data-en="Join">加入方式</a>
+    <a href="shop.html" data-nav="shop" data-zh="商城" data-en="Shop">商城</a>
+    <a href="login.html" data-account-link data-nav="member" data-zh="登录 / 会员" data-en="Sign in">登录</a>
+    <button class="lang-switch" type="button" onclick="toggleLanguage()" data-lang-label>中 / EN</button>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <p class="eyebrow">Shop</p>
+  <h1 data-zh="商城" data-en="Shop">商城</h1>
+  <p data-zh="有些东西值得等待，比如夜里的第一声鸟叫，比如这里即将上架的小物。" data-en="Some things are worth waiting for — the first call of the night, and the small objects that will appear here.">有些东西值得等待，比如夜里的第一声鸟叫，比如这里即将上架的小物。</p>
+</section>
+
+<section class="section">
+  <div class="card state-card">
+    <h2 class="qr-title" data-zh="商城正在筹备中" data-en="The shop is being prepared">商城正在筹备中</h2>
+    <p class="state-note" data-zh="这一页还没有开放。商品、预约与下单功能需要接入云端数据后才能使用；目前你可以先到身份登录页，用二维码或标识符登录查看会员中心。" data-en="This page is not open yet. Products, requests and checkout need the cloud backend first. For now you can sign in on the identity page with a QR code or identifier to view the member centre.">这一页还没有开放。商品、预约与下单功能需要接入云端数据后才能使用；目前你可以先到身份登录页，用二维码或标识符登录查看会员中心。</p>
+    <div class="qr-actions">
+      <a class="btn btn-primary" href="login.html" data-zh="前往身份登录" data-en="Go to identity sign-in">前往身份登录</a>
+      <a class="btn btn-ghost" href="index.html" data-zh="返回首页" data-en="Back home">返回首页</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand-name">猫头鹰教</span>
+      <p class="foot-slogan" data-zh="咕咪" data-en="Gu Mi">咕咪</p>
+      <p data-zh="在黑暗中，我们看得更清楚。" data-en="In the darkness, we see clearly.">在黑暗中，我们看得更清楚。</p>
+    </div>
+
+    <div>
+      <h4 data-zh="页面导航" data-en="Navigation">页面导航</h4>
+      <ul class="footer-links">
+        <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+        <li><a href="gallery.html" data-zh="画廊" data-en="Gallery">画廊</a></li>
+        <li><a href="about.html" data-zh="关于" data-en="About">关于</a></li>
+        <li><a href="join.html" data-zh="加入方式" data-en="Join">加入方式</a></li>
+      </ul>
+    </div>
+
+    <div class="proverb-box">
+      <div class="proverb-head">
+        <h4 data-zh="夜之箴言" data-en="Night Proverb">夜之箴言</h4>
+        <button class="proverb-btn" type="button" onclick="nextProverb()" data-zh="换一句" data-en="Another">换一句</button>
+      </div>
+      <p class="proverb-text" id="proverbText">黑夜不是遮蔽，而是让我们看见更多的幕布。</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span data-zh="© 2026 猫头鹰教 The Owl Cult" data-en="© 2026 The Owl Cult">© 2026 猫头鹰教 The Owl Cult</span>
+    <span class="author" data-zh="作者：Harmony_Bry" data-en="Author: Harmony_Bry">作者：Harmony_Bry</span>
+  </div>
+</footer>
+
+<button class="to-top" type="button" aria-label="回到顶部" data-aria-zh="回到顶部" data-aria-en="Back to top">↑</button>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/owl-sdk.js"></script>
+<script src="assets/owl-site.js"></script>
+</body>
+</html>

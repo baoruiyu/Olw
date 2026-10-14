@@ -997,6 +997,12 @@
   } else {
     initExtras();
   }
+
+  /* ---------- 云端公告接入（assets/owl-site.js 从云数据库取到公告后触发） ---------- */
+  window.addEventListener('owl:announcements-updated', function () {
+    announceIndex = 0;
+    renderAnnounce();
+  });
 })();
 
 /* ==========================================================================

@@ -25,6 +25,8 @@
     <a href="gallery.html" data-nav="gallery" data-zh="画廊" data-en="Gallery">画廊</a>
     <a href="about.html" data-nav="about" data-zh="关于" data-en="About">关于</a>
     <a href="join.html" data-nav="join" data-zh="加入方式" data-en="Join">加入方式</a>
+    <a href="shop.html" data-nav="shop" data-zh="商城" data-en="Shop">商城</a>
+    <a href="login.html" data-account-link data-nav="member" data-zh="登录 / 会员" data-en="Sign in">登录</a>
     <button class="lang-switch" type="button" onclick="toggleLanguage()" data-lang-label>中 / EN</button>
   </nav>
 </header>
@@ -32,7 +34,8 @@
 <section class="page-hero">
   <p class="eyebrow" data-zh="Join" data-en="Join">Join</p>
   <h1 data-zh="加入方式" data-en="How to Join">加入方式</h1>
-  <p data-zh="一只猫头鹰在等你。通过下面任意一种方式联系它，即可拿到入会暗号。" data-en="An owl is waiting. Reach it through either channel below to receive the watchword.">一只猫头鹰在等你。通过下面任意一种方式联系它，即可拿到入会暗号。</p>
+  <p data-zh="一只猫头鹰在等你。先在登录页生成一份「申请标识符」，再通过下面任意一种方式发给管理员，即可完成入会。"
+     data-en="An owl is waiting. Generate an application code on the sign-in page, then send it to the administrator through either channel below to join.">一只猫头鹰在等你。先在登录页生成一份「申请标识符」，再通过下面任意一种方式发给管理员，即可完成入会。</p>
 </section>
 
 <section class="section">
@@ -54,18 +57,52 @@
     </div>
   </div>
 
+  <!-- 入会需要发送什么：解释「申请标识符」 -->
+  <div class="card join-idcard reveal">
+    <div class="join-idcard-head">
+      <span class="owl-idtype-tag is-request">OWLR</span>
+      <h2 class="join-idcard-title" data-zh="需要发给管理员的东西：申请标识符"
+          data-en="What to send the administrator: an application code">需要发给管理员的东西：申请标识符</h2>
+    </div>
+
+    <p class="join-idcard-lead" data-zh="入会不需要写自我介绍，也不需要填表。你只需要把一份「申请标识符」发给管理员——它是你在本地生成的一行文本，长这样："
+       data-en="Joining needs no cover letter and no form. You only send the administrator an “application code” — one line of text generated locally, looking like this:">入会不需要写自我介绍，也不需要填表。你只需要把一份「申请标识符」发给管理员——它是你在本地生成的一行文本，长这样：</p>
+
+    <p class="owl-sample-label" data-zh="格式示例（示例校验码无效，请以你实际生成的那一份为准）"
+       data-en="Format example (the sample checksum is invalid — use the code you actually generated)">格式示例（示例校验码无效，请以你实际生成的那一份为准）</p>
+    <p class="qr-mono qr-format is-sample">OWLR|Your Name|member|2026-01-01|0000000000000000</p>
+
+    <p class="join-idcard-lead" data-zh="其中依次记录了：你的英文名、期望身份、申请日期，以及一段 HMAC-SHA-256 校验码。校验码能保证内容没有在传递过程中被改动或抄错。"
+       data-en="It records, in order: your English name, requested role, the application date, and an HMAC-SHA-256 checksum that proves the text was not altered in transit.">其中依次记录了：你的英文名、期望身份、申请日期，以及一段 HMAC-SHA-256 校验码。校验码能保证内容没有在传递过程中被改动或抄错。</p>
+
+    <div class="owl-apply-note" data-zh="注意：申请标识符（OWLR）只能用于申请入会，不能用来登录。"
+         data-en="Note: an application code (OWLR) is only for applying — it cannot be used to sign in.">注意：申请标识符（OWLR）只能用于申请入会，不能用来登录。</div>
+
+    <div class="qr-actions">
+      <a class="btn btn-primary" href="login.html" data-zh="去生成申请标识符" data-en="Generate your application code">去生成申请标识符</a>
+    </div>
+  </div>
+
   <ol class="join-steps">
     <li class="reveal">
       <span class="step-no">01</span>
-      <span data-zh="用微信号或邮箱联系守夜人，说明你想加入。" data-en="Contact the night watcher by WeChat or email and say you want to join.">用微信号或邮箱联系守夜人，说明你想加入。</span>
+      <span data-zh="打开登录页，在「入会申请」里填写英文名与期望身份，生成你的申请标识符。"
+            data-en="Open the sign-in page, fill in your English name and requested role under “Membership application”, and generate your application code.">打开登录页，在「入会申请」里填写英文名与期望身份，生成你的申请标识符。</span>
     </li>
     <li class="reveal" data-delay="120">
       <span class="step-no">02</span>
-      <span data-zh="在任意一个夜晚，抬头看五分钟天空。" data-en="On any night, look up at the sky for five minutes.">在任意一个夜晚，抬头看五分钟天空。</span>
+      <span data-zh="复制这行标识符，用上面的微信号或邮箱发给管理员，并说明你想加入。"
+            data-en="Copy it and send it to the administrator by WeChat or email above, saying you would like to join.">复制这行标识符，用上面的微信号或邮箱发给管理员，并说明你想加入。</span>
     </li>
     <li class="reveal" data-delay="240">
       <span class="step-no">03</span>
-      <span data-zh="把看到的写下来回复过去，暗号即确认通过。" data-en="Write down what you saw and reply — the watchword is then confirmed.">把看到的写下来回复过去，暗号即确认通过。</span>
+      <span data-zh="在任意一个夜晚，抬头看五分钟天空；把看到的写下来一并发过去。"
+            data-en="On any night, look up at the sky for five minutes and send along what you saw.">在任意一个夜晚，抬头看五分钟天空；把看到的写下来一并发过去。</span>
+    </li>
+    <li class="reveal" data-delay="360">
+      <span class="step-no">04</span>
+      <span data-zh="管理员核对无误后，会把你的「登录标识符」和二维码发给你。用它在登录页扫码或粘贴即可进门。"
+            data-en="Once verified, the administrator sends you your sign-in identifier and QR code. Scan it or paste it on the sign-in page to get in.">管理员核对无误后，会把你的「登录标识符」和二维码发给你。用它在登录页扫码或粘贴即可进门。</span>
     </li>
   </ol>
 
@@ -109,5 +146,8 @@
 
 <script src="data.js"></script>
 <script src="script.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/owl-sdk.js"></script>
+<script src="assets/owl-site.js"></script>
 </body>
 </html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="猫头鹰教身份登录 —— 用个人身份标识符生成二维码，扫码或手动输入即可登录。">
+<meta name="theme-color" content="#070a14">
+<title>身份登录 · 猫头鹰教</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login" data-title-zh="身份登录 · 猫头鹰教" data-title-en="Identity sign-in · The Owl Cult">
+
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="nav" id="siteNav">
+  <a class="nav-brand" href="index.html">
+    <span class="zh">猫头鹰教</span>
+    <span class="en">The Owl Cult</span>
+  </a>
+  <button class="nav-toggle" type="button" aria-label="菜单" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="nav-menu" id="navMenu">
+    <a href="index.html" data-nav="index" data-zh="首页" data-en="Home">首页</a>
+    <a href="gallery.html" data-nav="gallery" data-zh="画廊" data-en="Gallery">画廊</a>
+    <a href="about.html" data-nav="about" data-zh="关于" data-en="About">关于</a>
+    <a href="join.html" data-nav="join" data-zh="加入方式" data-en="Join">加入方式</a>
+    <a href="shop.html" data-nav="shop" data-zh="商城" data-en="Shop">商城</a>
+    <a href="login.html" data-account-link data-nav="member" data-zh="登录 / 会员" data-en="Sign in">登录</a>
+    <button class="lang-switch" type="button" onclick="toggleLanguage()" data-lang-label>中 / EN</button>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <p class="eyebrow" data-zh="Identity" data-en="Identity">Identity</p>
+  <h1 data-zh="身份登录" data-en="Identity sign-in">身份登录</h1>
+  <p data-zh="每位成员都有一个唯一身份标识符：英文名、身份与加入时间，再加上一段加密校验码。登录标识符由管理员签发，扫一下就能进门；还没有的话，在下面生成一份入会申请发给管理员。"
+     data-en="Every member holds a unique identity marker: English name, role and join date, sealed with an encrypted checksum. Sign-in codes are issued by the administrator — one scan opens the door. Don't have one yet? Generate a membership application below and send it over.">每位成员都有一个唯一身份标识符：英文名、身份与加入时间，再加上一段加密校验码。登录标识符由管理员签发，扫一下就能进门；还没有的话，在下面生成一份入会申请发给管理员。</p>
+</section>
+
+<section class="section">
+  <!-- 登录主面板：扫码 / 手动输入 / 生成二维码，三种方式由 page-qr-login.js 渲染 -->
+  <div id="qrLoginApp" class="qr-app">
+    <div class="qr-card card">
+      <div class="qr-head">
+        <h2 class="qr-title">身份登录</h2>
+        <p class="qr-sub">正在准备…</p>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <p class="state-note is-danger">本页需要启用 JavaScript 才能生成与识别二维码。</p>
+  </noscript>
+
+  <!-- 入会申请：访客填写资料 → 本地生成 OWLR 申请标识符 → 发给管理员 -->
+  <div id="owlApplyApp" class="owl-apply-app">
+    <div class="qr-card card">
+      <div class="qr-head">
+        <h2 class="qr-title">入会申请</h2>
+        <p class="qr-sub">正在准备…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 格式说明：让用户随时能看懂标识符长什么样 -->
+  <div class="qr-help-card card">
+    <h3 class="qr-help-title" data-zh="两类标识符" data-en="Two kinds of identifier">两类标识符</h3>
+
+    <div class="owl-idtype">
+      <div class="owl-idtype-head">
+        <span class="owl-idtype-tag is-login">OWL1</span>
+        <strong data-zh="登录标识符" data-en="Sign-in identifier">登录标识符</strong>
+        <span class="chip chip-gold" data-zh="管理员签发" data-en="Issued by admin">管理员签发</span>
+      </div>
+      <p class="qr-mono qr-format">OWL1|&lt;英文名&gt;|&lt;admin 或 member&gt;|&lt;加入时间 YYYY-MM-DD&gt;|&lt;16 位校验码&gt;</p>
+      <p class="owl-sample-label" data-zh="格式示例（示例校验码无效，不能用于登录）"
+         data-en="Format example (the sample checksum is invalid and cannot be used to sign in)">格式示例（示例校验码无效，不能用于登录）</p>
+      <p class="qr-mono qr-format is-sample">OWL1|Your Name|member|2026-01-01|0000000000000000</p>
+      <p class="qr-note" data-zh="用于登录。由管理员在管理后台生成并发给你，可以做成二维码扫码登录，也可以直接粘贴文本。"
+         data-en="Used to sign in. Your administrator generates it in the admin console and sends it to you; scan it as a QR code or paste the text.">用于登录。由管理员在管理后台生成并发给你，可以做成二维码扫码登录，也可以直接粘贴文本。</p>
+    </div>
+
+    <div class="owl-idtype">
+      <div class="owl-idtype-head">
+        <span class="owl-idtype-tag is-request">OWLR</span>
+        <strong data-zh="申请标识符" data-en="Application code">申请标识符</strong>
+        <span class="chip" data-zh="不可用于登录" data-en="Not for sign-in">不可用于登录</span>
+      </div>
+      <p class="qr-mono qr-format">OWLR|&lt;英文名&gt;|&lt;期望身份&gt;|&lt;申请日期 YYYY-MM-DD&gt;|&lt;16 位校验码&gt;</p>
+      <p class="owl-sample-label" data-zh="格式示例（示例校验码无效，仅用于说明格式）"
+         data-en="Format example (the sample checksum is invalid; it only illustrates the format)">格式示例（示例校验码无效，仅用于说明格式）</p>
+      <p class="qr-mono qr-format is-sample">OWLR|Your Name|member|2026-01-01|0000000000000000</p>
+      <p class="qr-note" data-zh="只用于申请入会。在上面的「入会申请」里填写资料即可生成，复制后发给管理员。它永远不能用来登录。"
+         data-en="Only for applying to join. Generate it in the application section above, then send it to your administrator. It can never be used to sign in.">只用于申请入会。在上面的「入会申请」里填写资料即可生成，复制后发给管理员。它永远不能用来登录。</p>
+    </div>
+
+    <ul class="qr-help-list">
+      <li data-zh="英文名：只允许英文字母、数字、空格与 . ' - _" data-en="English name: letters, digits, spaces and . ' - _ only">英文名：只允许英文字母、数字、空格与 . ' - _</li>
+      <li data-zh="身份：admin（管理员）或 member（会员）" data-en="Role: admin or member">身份：admin（管理员）或 member（会员）</li>
+      <li data-zh="日期：YYYY-MM-DD" data-en="Date: YYYY-MM-DD">日期：YYYY-MM-DD</li>
+      <li data-zh="校验码：HMAC-SHA-256 截取 16 位十六进制。两类标识符使用各自独立的密钥，所以申请标识符不可能冒充登录标识符"
+          data-en="Checksum: HMAC-SHA-256 truncated to 16 hex characters. The two kinds use separate keys, so an application code can never impersonate a sign-in code.">校验码：HMAC-SHA-256 截取 16 位十六进制。两类标识符使用各自独立的密钥，所以申请标识符不可能冒充登录标识符</li>
+    </ul>
+    <p class="qr-note" data-zh="所有计算都在你的浏览器里完成，不会联网、不会上传任何信息。"
+       data-en="Everything is computed inside your browser — nothing is uploaded and no network call is made.">所有计算都在你的浏览器里完成，不会联网、不会上传任何信息。</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand-name">猫头鹰教</span>
+      <p class="foot-slogan" data-zh="咕咪" data-en="Gu Mi">咕咪</p>
+      <p data-zh="在黑暗中，我们看得更清楚。" data-en="In the darkness, we see clearly.">在黑暗中，我们看得更清楚。</p>
+    </div>
+
+    <div>
+      <h4 data-zh="页面导航" data-en="Navigation">页面导航</h4>
+      <ul class="footer-links">
+        <li><a href="index.html" data-zh="首页" data-en="Home">首页</a></li>
+        <li><a href="gallery.html" data-zh="画廊" data-en="Gallery">画廊</a></li>
+        <li><a href="about.html" data-zh="关于" data-en="About">关于</a></li>
+        <li><a href="join.html" data-zh="加入方式" data-en="Join">加入方式</a></li>
+      </ul>
+    </div>
+
+    <div class="proverb-box">
+      <div class="proverb-head">
+        <h4 data-zh="夜之箴言" data-en="Night Proverb">夜之箴言</h4>
+        <button class="proverb-btn" type="button" onclick="nextProverb()" data-zh="换一句" data-en="Another">换一句</button>
+      </div>
+      <p class="proverb-text" id="proverbText">黑夜不是遮蔽，而是让我们看见更多的幕布。</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span data-zh="© 2026 猫头鹰教 The Owl Cult" data-en="© 2026 The Owl Cult">© 2026 猫头鹰教 The Owl Cult</span>
+    <span class="author" data-zh="作者：Harmony_Bry" data-en="Author: Harmony_Bry">作者：Harmony_Bry</span>
+  </div>
+</footer>
+
+<button class="to-top" type="button" aria-label="回到顶部" data-aria-zh="回到顶部" data-aria-en="Back to top">↑</button>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/owl-sdk.js"></script>
+<script src="assets/owl-site.js"></script>
+<script src="assets/owl-id.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/owl-idcard.js"></script>
+<script src="assets/page-qr-login.js"></script>
+</body>
+</html>
