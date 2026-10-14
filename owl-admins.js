@@ -1,5 +1,5 @@
 /* ==========================================================================
-   猫头鹰教 The Owl Cult — assets/owl-admins.js
+   猫头鹰教 The Owl Cult — owl-admins.js
    管理员账号（本地账号体系）
 
    对外暴露 window.OWLADMIN：

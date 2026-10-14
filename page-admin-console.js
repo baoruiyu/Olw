@@ -1,5 +1,5 @@
 /* ==========================================================================
-   猫头鹰教 The Owl Cult — assets/page-admin-console.js
+   猫头鹰教 The Owl Cult — page-admin-console.js
    admin.html 专用逻辑：管理后台
 
    功能：

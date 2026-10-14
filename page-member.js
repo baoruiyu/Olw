@@ -1,5 +1,5 @@
 /* ==========================================================================
-   猫头鹰教 The Owl Cult — assets/page-member.js
+   猫头鹰教 The Owl Cult — page-member.js
    member.html 专用逻辑：会员中心（账号信息、我的预约记录、站点公告）
    ========================================================================== */
 
@@ -66,7 +66,7 @@
 
     var html = '<div class="member-card card">'
       + '<div class="auth-profile">'
-      + '<img class="auth-avatar" src="' + esc(user.avatar || 'images/owl1.jpg') + '" alt="' + esc(name) + '" loading="lazy">'
+      + '<img class="auth-avatar" src="' + esc(user.avatar || 'owl1.jpg') + '" alt="' + esc(name) + '" loading="lazy">'
       + '<div class="auth-profile-text">'
       + '<h3 class="auth-title">' + esc(name) + '</h3>'
       + '<p class="auth-desc">' + esc(roleText(user)) + '</p>'
@@ -208,7 +208,7 @@
   function render() {
     if (!OWL.isConfigured()) {
       showGate('<div class="card state-card"><h3>' + t('还没有配置云开发环境', 'CloudBase environment not configured yet') + '</h3>'
-        + '<p>' + t('请按 docs/部署手册.md 完成部署，并把环境 ID 填入 assets/config.js。', 'Follow docs/部署手册.md to deploy, then fill the env ID into assets/config.js.') + '</p></div>');
+        + '<p>' + t('请按 docs/部署手册.md 完成部署，并把环境 ID 填入 config.js。', 'Follow docs/部署手册.md to deploy, then fill the env ID into config.js.') + '</p></div>');
       return;
     }
 

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   猫头鹰教 The Owl Cult — assets/page-shop.js
+   猫头鹰教 The Owl Cult — page-shop.js
    shop.html 专用逻辑：从云数据库读取商品列表并渲染，「我想要 / 预约」写入云端记录
 
    说明：本站商城不做在线支付，仅做展示与意向登记。
@@ -27,7 +27,7 @@
 
   function thumbFor(p, i) {
     if (p.image) { return p.image; }
-    return 'images/owl' + ((i % 9) + 1) + '.jpg';
+    return 'owl' + ((i % 9) + 1) + '.jpg';
   }
 
   function cardMarkup(p, i) {
@@ -79,8 +79,8 @@
   function errorMarkup() {
     return '<div class="shop-empty card">'
       + '<h3>' + t('暂时无法读取商品', 'Products are unavailable right now') + '</h3>'
-      + '<p>' + t('请稍后重试；若一直失败，请确认云函数已部署、assets/config.js 中的环境 ID 正确。',
-        'Please retry later. If it keeps failing, check that the cloud function is deployed and the env ID in assets/config.js is correct.') + '</p>'
+      + '<p>' + t('请稍后重试；若一直失败，请确认云函数已部署、config.js 中的环境 ID 正确。',
+        'Please retry later. If it keeps failing, check that the cloud function is deployed and the env ID in config.js is correct.') + '</p>'
       + '<button class="btn" type="button" id="shopRetry">' + t('重新加载', 'Reload') + '</button>'
       + '</div>';
   }
@@ -88,8 +88,8 @@
   function unconfiguredMarkup() {
     return '<div class="shop-empty card">'
       + '<h3>' + t('还没有配置云开发环境', 'CloudBase environment not configured yet') + '</h3>'
-      + '<p>' + t('请按 docs/部署手册.md 完成部署，并把环境 ID 填入 assets/config.js。',
-        'Follow docs/部署手册.md to deploy, then fill the env ID into assets/config.js.') + '</p>'
+      + '<p>' + t('请按 docs/部署手册.md 完成部署，并把环境 ID 填入 config.js。',
+        'Follow docs/部署手册.md to deploy, then fill the env ID into config.js.') + '</p>'
       + '</div>';
   }
 

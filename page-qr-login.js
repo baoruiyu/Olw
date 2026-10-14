@@ -1,5 +1,5 @@
 /* ==========================================================================
-   猫头鹰教 The Owl Cult — assets/page-qr-login.js
+   猫头鹰教 The Owl Cult — page-qr-login.js
    login.html 专用逻辑：身份登录 + 入会申请
 
    ┌──────────────────────────────────────────────────────────────────────┐
@@ -15,7 +15,7 @@
    重要：本页不提供「生成登录二维码」的功能。
         登录标识符（OWL1）只能由管理员在管理后台签发。
 
-   依赖：assets/config.js、assets/owl-sdk.js、assets/owl-id.js、assets/qr.js
+   依赖：config.js、owl-sdk.js、owl-id.js、qr.js
    ========================================================================== */
 
 (function (window, document) {

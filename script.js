@@ -159,7 +159,7 @@
       html += '<figure class="gallery-item reveal" data-lightbox'
         + ' data-caption-zh="' + escapeHtml(it.zh) + '" data-caption-en="' + escapeHtml(it.en) + '"'
         + ' data-index="' + i + '">'
-        + '<img src="images/' + it.file + '" alt="' + escapeHtml(it.zh) + '"'
+        + '<img src="' + it.file + '" alt="' + escapeHtml(it.zh) + '"'
         + ' data-alt-zh="' + escapeHtml(it.zh) + '" data-alt-en="' + escapeHtml(it.en) + '"'
         + ' loading="lazy" decoding="async" width="800" height="600">'
         + '<figcaption>'
@@ -998,7 +998,7 @@
     initExtras();
   }
 
-  /* ---------- 云端公告接入（assets/owl-site.js 从云数据库取到公告后触发） ---------- */
+  /* ---------- 云端公告接入（owl-site.js 从云数据库取到公告后触发） ---------- */
   window.addEventListener('owl:announcements-updated', function () {
     announceIndex = 0;
     renderAnnounce();

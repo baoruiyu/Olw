@@ -1,5 +1,5 @@
 /* ==========================================================================
-   猫头鹰教 The Owl Cult — assets/owl-sdk.js
+   猫头鹰教 The Owl Cult — owl-sdk.js
    CloudBase 前端封装（无需打包，浏览器直接引用）
 
    对外暴露 window.OWL：
@@ -102,7 +102,7 @@
   OwlError.prototype.constructor = OwlError;
 
   var CODE_TEXT = {
-    NOT_CONFIGURED: ['云开发环境尚未配置（请填写 assets/config.js 的 envId）', 'CloudBase environment is not configured yet'],
+    NOT_CONFIGURED: ['云开发环境尚未配置（请填写 config.js 的 envId）', 'CloudBase environment is not configured yet'],
     SDK_LOAD_FAILED: ['CloudBase SDK 加载失败，请检查网络后重试', 'Failed to load the CloudBase SDK, please check your network'],
     NETWORK: ['网络异常或云函数未部署，请稍后重试', 'Network error or the cloud function is not deployed yet'],
     UNAUTHORIZED: ['请先登录', 'Please sign in first'],

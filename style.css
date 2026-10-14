@@ -1539,7 +1539,7 @@ body.lb-open{overflow:hidden;}
 }
 
 /* ==========================================================================
-   身份登录 · 二维码（login.html / assets/page-qr-login.js）
+   身份登录 · 二维码（login.html / page-qr-login.js）
    ========================================================================== */
 
 .qr-app{max-width:880px;margin:0 auto;}

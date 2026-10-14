@@ -1,5 +1,5 @@
 /* ==========================================================================
-   猫头鹰教 The Owl Cult — assets/page-member-identity.js
+   猫头鹰教 The Owl Cult — page-member-identity.js
    member.html 附加逻辑：展示当前用户的身份标识符与二维码
 
    仅当用户是通过「身份标识符 / 二维码」登录时才有内容可显示；

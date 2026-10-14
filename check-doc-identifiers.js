@@ -1,11 +1,11 @@
 /* ==========================================================================
-   猫头鹰教 The Owl Cult — tools/check-doc-identifiers.js
+   猫头鹰教 The Owl Cult — check-doc-identifiers.js
    文档守卫：确保页面上出现的「示例标识符」都不是可用的真实凭据。
 
    背景：曾经把 OWL1|Harmony|admin|2026-06-01|<真实校验码> 当作示例写在
    帮助卡片里，而它正好能登录内置管理员账号。这个脚本防止同类问题再次发生。
 
-   用法：node tools/check-doc-identifiers.js
+   用法：node check-doc-identifiers.js
    退出码：0 = 全部安全；1 = 发现可用凭据或格式问题。
    ========================================================================== */
 
@@ -14,21 +14,24 @@
 var fs = require('fs');
 var path = require('path');
 
-var ROOT = path.join(__dirname, '..');
+/* 本脚本位于站点根目录，根目录就是脚本自身所在目录。
+   注意：如果以后把这个脚本移到子目录里，这里必须改成对应的相对路径，
+   否则会去项目外面找文件。 */
+var ROOT = __dirname;
 
 /* 在 Node 里加载浏览器模块（它们都挂在 window 上） */
 global.window = {};
-require(path.join(ROOT, 'assets', 'owl-id.js'));
+require(path.join(ROOT, 'owl-id.js'));
 var OWLID = global.window.OWLID;
 
 /* 要扫描的「面向用户」的文件（脚本本体不参与，避免误报自身） */
 var TARGETS = [
   'login.html', 'join.html', 'member.html', 'admin.html',
   'index.html', 'about.html', 'gallery.html', 'shop.html',
-  'assets/page-qr-login.js',
-  'assets/page-admin-console.js',
-  'assets/page-member-identity.js',
-  'assets/owl-id.js'
+  'page-qr-login.js',
+  'page-admin-console.js',
+  'page-member-identity.js',
+  'owl-id.js'
 ];
 
 /* 字段里不能出现竖线，否则贪婪匹配会把后面的字段一起吞掉。

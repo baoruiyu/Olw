@@ -1,5 +1,5 @@
 /* ==========================================================================
-   猫头鹰教 The Owl Cult — assets/owl-idcard.js
+   猫头鹰教 The Owl Cult — owl-idcard.js
    把「标识符 + 二维码」渲染成一张完整的信息图（可下载为 PNG）
 
    对外暴露 window.OWLIDCARD：
